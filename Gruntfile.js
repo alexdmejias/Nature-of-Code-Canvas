@@ -51,12 +51,10 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('create', function() {
-		console.log(grunt.option('path'))
-		var unit = grunt.option('path').split('-');
-		var filePath = './chapters/' + unit[0] + '/' + unit[1];
-		var templateContent = grunt.file.read('./html_template.html');
-		var docTitle = 'Chapter ' + unit[0] + ' - Exercise ' + unit[1];
-
+		var unit = grunt.option('path').split('-')
+			, filePath = './chapters/' + unit[0] + '/' + unit[1]
+			, templateContent = grunt.file.read('./html_template.html')
+			, docTitle = 'Chapter ' + unit[0] + ' - Exercise ' + unit[1];
 
 		grunt.file.write(filePath + '/index.html', grunt.template.process(templateContent, {data: {title: docTitle}}))
 		grunt.file.write(filePath + '/app.js', '');
