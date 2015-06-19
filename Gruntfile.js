@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 			},
 
 			js: {
-				files: ['./chapters/*/*/*.js', '!./chapters/*/*/app.bundle.js'],
+				files: ['./modules/*.js', './chapters/*/*/*.js', '!./chapters/*/*/app.bundle.js'],
 				tasks: ['browserify']
 			}
 		},
@@ -32,6 +32,9 @@ module.exports = function(grunt) {
 
 		browserify: {
 			options: {
+        alias: {
+          'utils': './modules/utils.js'
+        },
 				browserifyOptions: {
 					debug: true
 				}
