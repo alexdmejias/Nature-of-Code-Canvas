@@ -10,7 +10,7 @@ var H = canvas.height
 var walker;
 
 function setup() {
-  walker = new Walker(cx, {x: W / 2, y: H / 2, width: 5});
+  walker = new Walker(cx, {x: W / 2, y: H / 2, width: 1});
 }
 
 function draw() {
