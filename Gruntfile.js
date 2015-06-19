@@ -59,8 +59,8 @@ module.exports = function(grunt) {
 			, templateContent = grunt.file.read('./html_template.html')
 			, docTitle = 'Chapter ' + unit[0] + ' - Exercise ' + unit[1];
 
-		grunt.file.write(filePath + '/index.html', grunt.template.process(templateContent, {data: {title: docTitle}}))
-		grunt.file.write(filePath + '/app.js', '');
+		grunt.file.write(filePath + '/index.html', grunt.template.process(templateContent, {data: {title: docTitle}}));
+    grunt.file.write(filePath + '/app.js', grunt.file.read('./js_template.js'));
 	});
 
 	grunt.registerTask('default', ['browserify', 'connect', 'watch']);
