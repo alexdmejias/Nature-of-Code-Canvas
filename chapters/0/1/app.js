@@ -1,8 +1,28 @@
-var box = require('./_BOX');
+var Walker = require('./_Walker');
 
-box();
+var canvas = document.getElementById('canvas')
+  , cx = canvas.getContext('2d');
 
-var canvas = document.getElementById('canvas'),
-cx = canvas.getContext('2d');
+var H = canvas.height
+  , W = canvas.width
+;
 
-cx.fillRect(0,0, 20,30);
+var walker;
+
+function setup() {
+  walker = new Walker(cx, {x: W / 2, y: H / 2, width: 5});
+}
+
+function draw() {
+  walker.step();
+  walker.display();
+
+
+  window.requestAnimationFrame(draw);
+}
+
+
+(function() {
+  setup();
+  window.requestAnimationFrame(draw);
+}());
