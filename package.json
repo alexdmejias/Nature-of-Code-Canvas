@@ -1,7 +1,9 @@
 {
   "name": "package",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gauss-random": "^1.0.1"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-browserify": "^3.8.0",
