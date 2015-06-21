@@ -2,3 +2,4 @@
 node_modules
 server_creds.json
 npm-debug.log
+**/app.bundle.js
