@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "dependencies": {
     "gauss-random": "^1.0.1",
-    "proc-noise": "0.0.1"
+    "proc-noise": "0.0.1",
+    "vector2d": "^2.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
