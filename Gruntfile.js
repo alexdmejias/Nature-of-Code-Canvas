@@ -23,9 +23,13 @@ module.exports = function(grunt) {
 		connect: {
 			server: {
 				options: {
-	        base: './chapters',
+					hostname: 'localhost',
+	        base: './',
 					sourceMap: true,
-					open: true
+					livereload: true,
+					open: {
+						target: 'http://localhost:8000/chapters'
+					}
 				}
 			}
 		},
