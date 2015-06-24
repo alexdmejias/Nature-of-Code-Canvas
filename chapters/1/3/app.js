@@ -11,28 +11,25 @@ var WIDTH = canvas.width
 var centerVec
   , mouseVec
   , mousePos
+	, xPanning = WIDTH / 2
+	, yPanning = HEIGHT / 2
 ;
 
 function setup() {
   console.log('setup');
   mousePos = {x: 0, y: 0};
-  centerVec = new Vector.ObjectVector(WIDTH / 2, HEIGHT / 2);
+  centerVec = new Vector.ObjectVector(xPanning, yPanning);
 	mouseVec = new Vector.ObjectVector(0, 0);
 }
 
 function draw() {
 	utils.clear();
 
-	var xPanning = WIDTH / 2;
-	var yPanning = HEIGHT / 2;
+  mouseVec.setAxes(mousePos.x, mousePos.y);
+
+  mouseVec.subtract(centerVec);
 
 	cx.translate(xPanning, yPanning);
-
-	// set the mouseVector to the position of the mouse
-	// modify the mousePos cords by the amount of the matrix
-	// translation
-	mouseVec.setX(mousePos.x - xPanning);
-	mouseVec.setY(mousePos.y - yPanning);
 
 	cx.beginPath();
 	cx.moveTo(0, 0);
