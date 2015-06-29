@@ -1,12 +1,6 @@
 var Vector = require('vector2d')
   , utils
-	, topSpeed
 ;
-
-function random2D () {
-	var angle = Math.random()*Math.PI*2;
-	return new Vector.ObjectVector(Math.cos(angle), Math.sin(angle));
-}
 
 function sub(one, two) {
 	var v1 = new Vector.ObjectVector(one.x, one.y);
@@ -29,8 +23,8 @@ function Mover(cx, canvas) {
 
 Mover.prototype.update = function(mousePos) {
 	var mouse = {
-		x: mousePos.x || 0,
-		y: mousePos.y || 0
+		x: mousePos.x,
+		y: mousePos.y
 	};
 	var mouseVec = new Vector.ObjectVector(mouse.x, mouse.y);
 
