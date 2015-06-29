@@ -1,6 +1,6 @@
 var canvas = document.getElementById('canvas')
   , cx = canvas.getContext('2d')
-  , utils = require('utils')
+  , utils = require('utils')(cx, canvas)
 ;
 
 var WIDTH = canvas.width
