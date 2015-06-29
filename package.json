@@ -4,7 +4,7 @@
   "dependencies": {
     "gauss-random": "^1.0.1",
     "proc-noise": "0.0.1",
-    "vector2d": "^2.1.0"
+    "vector2d": "amejias101/vec2d"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
