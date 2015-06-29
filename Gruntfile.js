@@ -65,6 +65,8 @@ module.exports = function(grunt) {
 
 		grunt.file.write(filePath + '/index.html', grunt.template.process(templateContent, {data: {title: docTitle}}));
     grunt.file.write(filePath + '/app.js', grunt.file.read('./js_template.js'));
+
+		grunt.task.run('default');
 	});
 
 	grunt.registerTask('default', ['browserify', 'connect', 'watch']);
