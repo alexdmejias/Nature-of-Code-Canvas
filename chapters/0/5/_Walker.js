@@ -1,9 +1,10 @@
-var utils = require('utils')
+var utils
 	, PerlinGenerator = require('proc-noise')
 	, noise = new PerlinGenerator()
 ;
 
 function Walker(context, opts, canvas) {
+	utils = require('utils')(context, canvas);
 	this.cx = context;
 	this.x = opts.x || 0;
 	this.y = opts.y || 0;

@@ -1,4 +1,4 @@
-var utils = require('utils');
+var utils = require('utils')();
 
 function Walker(context, opts) {
   this.cx = context;

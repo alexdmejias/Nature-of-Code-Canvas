@@ -1,7 +1,13 @@
-module.exports = function(cx, canvas) {
+function Utils(cx, canvas) {
   return {
-    cx : cx,
-    canvas: canvas,
+    cx : cx || '',
+    canvas: canvas || '',
+    halfX: function() {
+      return this.canvas.width / 2;
+    },
+    halfY: function() {
+      return this.canvas.height / 2;
+    },
     range: function (min, max) {
       if (!max) {
         max = min;
@@ -25,6 +31,9 @@ module.exports = function(cx, canvas) {
     clear: function() {
       this.cx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-
   }
+};
+
+module.exports = function(cx, canvas) {
+  return new Utils(cx, canvas);
 };
