@@ -37,7 +37,8 @@ module.exports = function(grunt) {
 		browserify: {
 			options: {
         alias: {
-          'utils': './modules/utils.js'
+          'utils': './modules/utils.js',
+          'V': './modules/p5Vectors.js'
         },
 				browserifyOptions: {
 					debug: true
