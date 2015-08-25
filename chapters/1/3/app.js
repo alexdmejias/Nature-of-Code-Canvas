@@ -1,7 +1,7 @@
 var canvas = document.getElementById('canvas')
   , cx = canvas.getContext('2d')
   , utils = require('utils')(cx, canvas)
-  , Vector = require('vector2d')
+  , V = require('V')
 ;
 
 var WIDTH = canvas.width
@@ -11,32 +11,30 @@ var WIDTH = canvas.width
 var centerVec
   , mouseVec
   , mousePos
-	, xPanning = WIDTH / 2
-	, yPanning = HEIGHT / 2
+  , xPanning = WIDTH / 2
+  , yPanning = HEIGHT / 2
 ;
 
 function setup() {
   console.log('setup');
   mousePos = {x: 0, y: 0};
-  centerVec = new Vector.ObjectVector(xPanning, yPanning);
-	mouseVec = new Vector.ObjectVector(0, 0);
+  centerVec = new V(xPanning, yPanning);
+  mouseVec = new V(0, 0);
 }
 
 function draw() {
-	utils.clear();
+  utils.clear();
+  mouseVec = new V(mousePos.x, mousePos.y);
+  mouseVec.sub(centerVec);
 
-  mouseVec.setAxes(mousePos.x, mousePos.y);
+  cx.translate(xPanning, yPanning);
 
-  mouseVec.subtract(centerVec);
+  cx.beginPath();
+  cx.moveTo(0, 0);
+  cx.lineTo(mouseVec.x, mouseVec.y);
+  cx.stroke();
 
-	cx.translate(xPanning, yPanning);
-
-	cx.beginPath();
-	cx.moveTo(0, 0);
-	cx.lineTo(mouseVec.getX(), mouseVec.getY());
-	cx.stroke();
-
-	cx.resetTransform();
+  cx.resetTransform();
   window.requestAnimationFrame(draw);
 }
 
