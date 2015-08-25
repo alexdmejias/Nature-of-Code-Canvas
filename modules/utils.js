@@ -58,6 +58,15 @@ function Utils(cx, canvas) {
       this.cx.arc(x, y, r, 0, 2 * Math.PI, false);
       this.cx.fill();
       this.cx.stroke();
+    },
+    constrain: function(val, min, max) {
+      if (val > max) {
+        return max;
+      } else if (val < min) {
+        return min;
+      } else {
+        return val;
+      }
     }
   }
 };
