@@ -1,0 +1,50 @@
+var canvas = document.getElementById('canvas')
+  , cx = canvas.getContext('2d')
+  , Attractor = require('./_Attractor')
+  , Mover = require('./_Mover')
+  , V = require('V')
+  , utils
+;
+
+var WIDTH = canvas.width
+  , HEIGHT = canvas.height
+  , a
+  , m
+  ;
+
+function setup() {
+  console.log('setup');
+  canvas.height = 300;
+  canvas.width = 600;
+  utils = require('utils')(cx, canvas);
+
+  a = new Attractor(cx, canvas);
+  m = [];
+  for (var i = 0; i < 10; i++) {
+    m[i] = new Mover(cx, canvas, {
+      mass: 1,
+      x: utils.range(0, 400),
+      y: 50
+    });
+  };
+}
+
+function draw() {
+  utils.clear();
+
+  a.display();
+  for (var i = 0; i < m.length; i++) {
+    var f = a.attract(m[i]);
+    m[i].applyForce(f);
+    m[i].update();
+    m[i].checkEdges();
+    m[i].display();
+  };
+
+  window.requestAnimationFrame(draw);
+}
+
+(function() {
+  setup();
+  window.requestAnimationFrame(draw);
+}());
