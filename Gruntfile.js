@@ -4,6 +4,7 @@ module.exports = function(grunt) {
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 	grunt.initConfig({
+		chapterToWatch: '2',
 
 		watch: {
 			options: {
@@ -15,8 +16,8 @@ module.exports = function(grunt) {
 			},
 
 			js: {
-				files: ['./modules/*.js', './chapters/*/*/*.js', '!./chapters/*/*/app.bundle.js'],
-				tasks: ['browserify']
+				files: ['./modules/*.js', './chapters/<%= chapterToWatch %>/*/*.js', '!./chapters/*/*/app.bundle.js'],
+				tasks: ['browserify:watch']
 			}
 		},
 
@@ -36,15 +37,15 @@ module.exports = function(grunt) {
 
 		browserify: {
 			options: {
-        alias: {
-          'utils': './modules/utils.js',
-          'V': './modules/p5Vectors.js'
-        },
+				alias:             {
+					'utils': './modules/utils.js',
+					'V':     './modules/p5Vectors.js'
+				},
 				browserifyOptions: {
 					debug: true
-				}
+				},
 			},
-			dist: {
+			init: {
 				files: [{
 	      	expand: true,
 					cwd: './chapters/',
@@ -54,6 +55,17 @@ module.exports = function(grunt) {
 						return './chapters/' + src;
 					}
 		    }]
+			},
+			watch: {
+				files: [{
+					expand: true,
+					cwd: './chapters/',
+					src: ['<%= chapterToWatch %>/*/app.js'],
+					ext: '.bundle.js',
+					rename: function(dest, src) {
+						return './chapters/' + src;
+					}
+				}]
 			}
 		}
 	});
@@ -70,5 +82,5 @@ module.exports = function(grunt) {
 		grunt.task.run('default');
 	});
 
-	grunt.registerTask('default', ['browserify', 'connect', 'watch']);
+	grunt.registerTask('default', ['browserify:init', 'connect', 'watch']);
 };
