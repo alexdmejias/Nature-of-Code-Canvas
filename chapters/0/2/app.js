@@ -1,6 +1,6 @@
 var canvas = document.getElementById('canvas')
   , cx = canvas.getContext('2d')
-  , utils = require('utils')()
+  , utils = require('utils')(cx, canvas)
 ;
 
 var WIDTH = canvas.width
@@ -11,16 +11,17 @@ var randomCounts;
 
 function setup() {
   console.log('setup');
-  randomCounts = new Array(20);
-  for (var i = 0; randomCounts.length > i; i++) {
+  var totalBars = 20;
+  randomCounts = [];
+  for (var i = 0; i < totalBars; i++) {
     randomCounts[i] = 0;
   }
 }
 
 function draw() {
-  var index = utils.range(-1, randomCounts.length);
+  var index = Math.floor(utils.range(0, 20));
 
-  randomCounts[index] += 1;
+  randomCounts[index]++;
   var w = WIDTH / randomCounts.length;
 
   for (var i = 0; randomCounts.length > i; i++) {

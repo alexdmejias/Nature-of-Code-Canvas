@@ -12,7 +12,7 @@ Walker.prototype.display = function() {
 };
 
 Walker.prototype.step = function() {
-  var choice = utils.range(4);
+  var choice = Math.round(utils.range(4));
   if (choice === 0) {
     this.x++;
   } else if(choice === 1) {

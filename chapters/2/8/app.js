@@ -1,6 +1,5 @@
 var canvas = document.getElementById('canvas')
   , cx = canvas.getContext('2d')
-  , Attractor = require('./_Attractor')
   , Mover = require('./_Mover')
   , V = require('V')
   , utils
@@ -18,7 +17,6 @@ function setup() {
   canvas.width = 600;
   utils = require('utils')(cx, canvas);
 
-  a = new Attractor(cx, canvas);
   m = [];
   for (var i = 0; i < 10; i++) {
     m[i] = new Mover(cx, canvas, {
@@ -32,7 +30,6 @@ function setup() {
 function draw() {
   utils.clear();
 
-  a.display();
   for (var i = 0; i < m.length; i++) {
     for (var j = 0; j < m.length; j++) {
       if (j !== i) {

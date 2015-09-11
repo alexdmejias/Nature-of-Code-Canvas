@@ -7,7 +7,7 @@ function Attractor(cx, canvas, opts) {
   this.cx = cx;
   this.canvas = canvas;
 
-  this.position = new V(utils.HW, utils.HH);
+  this.position = new V(utils.HW(), utils.HH());
   this.mass = 20;
   this.G = 1;
 }

@@ -1,7 +1,7 @@
-var Walker = require('./_Walker');
-
 var canvas = document.getElementById('canvas')
-  , cx = canvas.getContext('2d');
+  , cx = canvas.getContext('2d')
+  , Walker = require('./_Walker')
+  , utils = require('utils')(cx, canvas);
 
 var H = canvas.height
   , W = canvas.width
@@ -16,7 +16,6 @@ function setup() {
 function draw() {
   walker.step();
   walker.display();
-
 
   window.requestAnimationFrame(draw);
 }
