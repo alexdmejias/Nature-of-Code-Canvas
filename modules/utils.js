@@ -49,10 +49,10 @@ function Utils(cx, canvas) {
     clear: function() {
       this.cx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
-    W: canvas.width,
-    H: canvas.height,
-    HW: canvas.width / 2,
-    HH: canvas.height / 2,
+    W: function() { return canvas.width},
+    H: function() { return canvas.height},
+    HW: function() { return canvas.width / 2},
+    HH: function() { return canvas.height / 2},
     ellipse: function(x, y, r) {
       this.cx.beginPath();
       this.cx.arc(x, y, r, 0, 2 * Math.PI, false);

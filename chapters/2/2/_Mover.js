@@ -26,16 +26,16 @@ Mover.prototype.update = function() {
 };
 
 Mover.prototype.checkEdges = function () {
-  if (this.location.x > utils.W) {
-    this.location.x = utils.W;
+  if (this.location.x > utils.W()) {
+    this.location.x = utils.W();
     this.velocity.x *= -1;
   } else if (this.location.x < 0) {
     this.location.x = 0;
     this.velocity.x *= -1;
   }
 
-  if (this.location.y > utils.H) {
-    this.location.y = utils.H;
+  if (this.location.y > utils.H()) {
+    this.location.y = utils.H();
     this.velocity.y *= -1;
   } else if (this.location.y < 0) {
     this.location.y = 0;

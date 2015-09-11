@@ -21,7 +21,7 @@ function setup() {
   canvas.width = 600;
   utils = require('utils')(cx, canvas);
 
-  liquid = new Liquid(cx, canvas, {x:0, y: utils.H - 100, w: utils.W, h: 100, c: 0.1})
+  liquid = new Liquid(cx, canvas, {x:0, y: utils.H() - 100, w: utils.W(), h: 100, c: 0.1})
 
   for(var i = 0; qty > i; i++) {
     var options = {
