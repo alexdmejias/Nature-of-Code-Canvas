@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 	grunt.initConfig({
-		chapterToWatch: '2',
+		chapterToWatch: '3',
 
 		watch: {
 			options: {
@@ -41,9 +41,12 @@ module.exports = function(grunt) {
 					'utils': './modules/utils.js',
 					'V':     './modules/p5Vectors.js'
 				},
+				transform: [
+					["babelify"]
+				],
 				browserifyOptions: {
 					debug: true
-				},
+				}
 			},
 			init: {
 				files: [{
