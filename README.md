@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/amejias101/Nature-of-Code-Canvas.svg?branch=master)](https://travis-ci.org/amejias101/Nature-of-Code-Canvas)
+
 # Nature-of-Code-Canvas
 Place for me to put my progress in working through the Nature of Code book using the canvas api
 
