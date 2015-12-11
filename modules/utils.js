@@ -15,24 +15,24 @@ function Utils(cx, canvas) {
       }
       return Math.floor(Math.random() * (max - min) + min);
     },
-    range: function(min, max) {
-      var rand = Math.random();
-
-      if (arguments.length === 0) {
-        return rand;
-      } else
-      if (arguments.length === 1) {
-        return rand * min;
-      } else {
-        if (min > max) {
-          var tmp = min;
-          min = max;
-          max = tmp;
-        }
-
-        return rand * (max-min) + min;
-      }
-    },
+    //range: function(min, max) {
+    //  var rand = Math.random();
+		//
+    //  if (arguments.length === 0) {
+    //    return rand;
+    //  } else
+    //  if (arguments.length === 1) {
+    //    return rand * min;
+    //  } else {
+    //    if (min > max) {
+    //      var tmp = min;
+    //      min = max;
+    //      max = tmp;
+    //    }
+		//
+    //    return rand * (max-min) + min;
+    //  }
+    //},
     // taken from the p5.js project
     // https://github.com/processing/p5.js/blob/5c81d655f683f90452b80ab225a67e449463fff9/src/math/calculation.js#L394
     map: function(n, start1, stop1, start2, stop2) {
