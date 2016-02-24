@@ -7,7 +7,8 @@
     "vector2d": "amejias101/vec2d"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha tests/*.js"
+    "test": "./node_modules/mocha/bin/mocha tests/*.js",
+    "start": "./node_modules/.bin/http-server"
   },
   "babel": {
     "presets": [
@@ -15,14 +16,15 @@
     ]
   },
   "devDependencies": {
-    "grunt-babel": "^6.0.0",
     "babel-preset-es2015": "^6.3.13",
     "babelify": "^7.2.0",
     "chai": "^3.4.1",
     "grunt": "~0.4.1",
+    "grunt-babel": "^6.0.0",
     "grunt-browserify": "^3.8.0",
     "grunt-contrib-connect": "^0.7.0",
     "grunt-contrib-watch": "~0.5.3",
+    "http-server": "^0.9.0",
     "matchdep": "~0.3.0",
     "mocha": "^2.3.4"
   }
